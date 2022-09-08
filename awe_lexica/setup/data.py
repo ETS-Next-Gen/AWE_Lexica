@@ -19,6 +19,8 @@ from nltk.corpus import stopwords
 
 import site
 
+import varname
+
 import nltk
 import os
 import sys
@@ -812,61 +814,30 @@ class data:
         stancePerspectiveVoc = \
             self.loadViewpointLexicon()
 
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'syllables.json')
-        srsly.write_json(outputfile, syllables)
+        exports = [
+            syllables,
+            roots,
+            family_sizes,
+            family_max_freqs,
+            family_idxs,
+            family_lists,
+            morpholex,
+            latinate,
+            nMorph_status,
+            sentiment,
+            academic,
+            transition_terms,
+            transition_categories,
+            stancePerspectiveVoc
+        ]
 
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'roots.json')
-        srsly.write_json(outputfile, roots)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'family_sizes.json')
-        srsly.write_json(outputfile, family_sizes)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'family_max_freqs.json')
-        srsly.write_json(outputfile, family_max_freqs)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'family_idxs.json')
-        srsly.write_json(outputfile, family_idxs)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'family_lists.json')
-        srsly.write_json(outputfile, family_lists)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'morpholex.json')
-        srsly.write_json(outputfile, morpholex)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'latinate.json')
-        srsly.write_json(outputfile, latinate)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'nMorph_status.json')
-        srsly.write_json(outputfile, nMorph_status)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'sentiment.json')
-        srsly.write_json(outputfile, sentiment)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'academic.json')
-        srsly.write_json(outputfile, academic)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'transition_terms.json')
-        srsly.write_json(outputfile, transition_terms)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'transition_categories.json')
-        srsly.write_json(outputfile, transition_categories)
-
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'stancePerspectiveVoc.json')
-        srsly.write_json(outputfile, stancePerspectiveVoc)
+        for export in exports:
+            filename = "{variable_name}.json".format(
+                variable_name = varname.nameof(export)
+            )
+            with resources.path('awe_lexica.json_data',
+                                filename) as outputfile:
+                srsly.write_json(outputfile, syllables)
 
     def get_all_hypernyms(self, synset):
         returnSet = []
