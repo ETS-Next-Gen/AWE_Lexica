@@ -52,7 +52,7 @@ def is_ascii(s):
 
 def load_text_resource(filename):
     data = resources.read_text('awe_lexica.data',
-                                   filename)
+                               filename)
     rowSet = data.split('\n')
     return rowSet
 
@@ -752,36 +752,36 @@ def loadViewpointLexicon(viewpointLex='argVoc.csv'):
     """
     stancePerspectiveVoc = {}
 
-    filepath = resources.path('awe_lexica.data',
-                              viewpointLex)
+    with resources.path('awe_lexica.data',
+                         viewpointLex) as filepath:
 
-    with open(filepath, mode='r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        line_count = 0
-        for row in csv_reader:
-            if row['word'] not in stancePerspectiveVoc:
-                stancePerspectiveVoc[row['word']] = {}
-            if row['pos'] not in stancePerspectiveVoc[row['word']]:
-                stancePerspectiveVoc[row['word']][row['pos']] = []
-            if row['mode'] is not None \
-               and row['mode'] not in stancePerspectiveVoc[
-                   row['word']][row['pos']]:
+        with open(filepath, mode='r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            line_count = 0
+            for row in csv_reader:
+                if row['word'] not in stancePerspectiveVoc:
+                    stancePerspectiveVoc[row['word']] = {}
+                if row['pos'] not in stancePerspectiveVoc[row['word']]:
+                    stancePerspectiveVoc[row['word']][row['pos']] = []
+                if row['mode'] is not None \
+                   and row['mode'] not in stancePerspectiveVoc[
+                       row['word']][row['pos']]:
 
-                stancePerspectiveVoc[row['word']][
-                    row['pos']].append(row['mode'])
-                Token.set_extension('vwp_'
-                                    + row['mode'],
-                                    default=False,
-                                    force=True)
-            if row['category'] is not None \
-               and (row['category'] not in
-                    stancePerspectiveVoc[row['word']][row['pos']]):
-                stancePerspectiveVoc[row['word']][row['pos']].append(
-                    row['category'])
-                Token.set_extension('vwp_'
-                                    + row['category'],
-                                    default=False,
-                                    force=True)
+                    stancePerspectiveVoc[row['word']][
+                        row['pos']].append(row['mode'])
+                    Token.set_extension('vwp_'
+                                        + row['mode'],
+                                        default=False,
+                                        force=True)
+                if row['category'] is not None \
+                   and (row['category'] not in
+                        stancePerspectiveVoc[row['word']][row['pos']]):
+                    stancePerspectiveVoc[row['word']][row['pos']].append(
+                        row['category'])
+                    Token.set_extension('vwp_'
+                                        + row['category'],
+                                        default=False,
+                                        force=True)
     return stancePerspectiveVoc
 
 def to_disk():
@@ -805,29 +805,30 @@ def to_disk():
         loadViewpointLexicon()
 
     exports = [
-         syllables,
-         roots,
-         family_sizes,
-         family_max_freqs,
-         family_idxs,
-         family_lists,
-         morpholex,
-         latinate,
-         nMorph_status,
-         sentiment,
-         academic,
-         transition_terms,
-         transition_categories,
-         stancePerspectiveVoc
+         nameof(syllables),
+         nameof(roots),
+         nameof(family_sizes),
+         nameof(family_max_freqs),
+         nameof(family_idxs),
+         nameof(family_lists),
+         nameof(morpholex),
+         nameof(latinate),
+         nameof(nMorph_status),
+         nameof(sentiment),
+         nameof(academic),
+         nameof(transition_terms),
+         nameof(transition_categories),
+         nameof(stancePerspectiveVoc)
      ]
 
     for export in exports:
         filename = "{variable_name}.json".format(
-            variable_name=nameof(export)
+            variable_name=export
         )
         with resources.path('awe_lexica.json_data',
                             filename) as outputfile:
-            srsly.write_json(outputfile, export)
+            print('writing output file to', outputfile)
+            srsly.write_json(outputfile, eval(export))
 
 def get_all_hypernyms(synset):
     returnSet = []
@@ -901,187 +902,187 @@ def levenshtein_ratio_and_distance(s, t, ratio_calc=False):
 
 def processConcretes():
     rawconcretes = {}
-    filepath = resources.path('awe_lexica.data',
-                              'Concr_Base.csv')
-    with open(filepath, mode='r', encoding='ISO-8859-1') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        line_count = 0
-        synsetCounts = {}
-        synsetSums = {}
+    with resources.path('awe_lexica.data',
+                        'Concr_Base.csv') as filepath:
+        with open(filepath, mode='r', encoding='ISO-8859-1') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            line_count = 0
+            synsetCounts = {}
+            synsetSums = {}
 
-        # First estimate concreteness using hypernym and meronym
-        # relations only
-        print('Make initial concreteness estimates for WordNet \
-               synsets using hypernym and meronym relations only.')
-        for row in csv_reader:
-            word = row['Word']
-            concreteness = float(row['CNC_M'])
-            rawconcretes[word] = concreteness
-            synsets = wordnet.synsets(word)
-            if len(synsets) > 0:
-                if synsets[0] not in synsetCounts:
-                    synsetCounts[synsets[0]] = 1
-                    synsetSums[synsets[0]] = concreteness
-                else:
-                    synsetCounts[synsets[0]] += 1
-                    synsetSums[synsets[0]] += concreteness
-                for synset in get_all_hypernyms(synsets[0]):
-                    if synset.name() == 'entity.n.1':
-                        continue
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
+            # First estimate concreteness using hypernym and meronym
+            # relations only
+            print('Make initial concreteness estimates for WordNet \
+                   synsets using hypernym and meronym relations only.')
+            for row in csv_reader:
+                word = row['Word']
+                concreteness = float(row['CNC_M'])
+                rawconcretes[word] = concreteness
+                synsets = wordnet.synsets(word)
+                if len(synsets) > 0:
+                    if synsets[0] not in synsetCounts:
+                        synsetCounts[synsets[0]] = 1
+                        synsetSums[synsets[0]] = concreteness
                     else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-                for synset in synsets[0].part_meronyms():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-                for synset in synsets[0].substance_meronyms():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-                for synset in synsets[0].member_meronyms():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-
-        # Then extend it using all other relations
-        print("Extend concreteness estimates for WordNet synsets " 
-              + " using all other relations.")
-        for row in csv_reader:
-            word = row['Word']
-            concreteness = float(row['CNC_M'])
-            synsets = wordnet.synsets(word)
-            if len(synsets) > 0 and synsets[0] not in synsetCounts:
-                for lemma in synsets[0].lemmas():
-                    for antonym in lemma.antonyms():
-                        if antonym.synset() not in synsetCounts:
-                            synsetCounts[antonym.synset()] = 1
-                            synsetSums[antonym.synset()] = \
-                                concreteness
-                        else:
-                            synsetCounts[antonym.synset()] += 1
-                            synsetSums[antonym.synset()] += \
-                                concreteness
-                    for pertainym in lemma.pertainyms():
-                        if pertainym.synset() not in synsetCounts:
-                            synsetCounts[pertainym.synset()] = 1
-                            if len(pertainym.synset().hypernyms()) > 0:
-                                synsetSums[pertainym.synset()] = \
-                                    concreteness * .8
-                            else:
-                                synsetSums[pertainym.synset()] = \
-                                    concreteness
-                        else:
-                            synsetCounts[pertainym.synset()] += 1
-                            if len(pertainym.synset().hypernyms()) > 0:
-                                synsetSums[pertainym.synset()] += \
-                                    concreteness*.8
-                            else:
-                                synsetSums[pertainym.synset()] += \
-                                    concreteness
-
-                    for related in lemma.derivationally_related_forms():
-                        if related.synset() not in synsetCounts:
-                            synsetCounts[related.synset()] = 1
-                            if len(related.synset().hypernyms()) > 0:
-                                synsetSums[related.synset()] = \
-                                    concreteness * .8
-                            else:
-                                synsetSums[related.synset()] = \
-                                    concreteness
-                        else:
-                            synsetCounts[related.synset()] += 1
-                            if len(related.synset().hypernyms()) > 0:
-                                synsetSums[related.synset()] += \
-                                    concreteness*.8
-                            else:
-                                synsetSums[related.synset()] += \
-                                    concreteness
-
-                for synset in synsets[0].similar_tos():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-                    for attr in synset.attributes():
-                        if attr in synsetCounts:
-                            synsetCounts[synset] += \
-                                synsetCounts[attr]
-                            if len(synset.attributes().hypernyms()) > 0:
-                                synsetSums[synset] += \
-                                    synsetSums[attr]*.8
-                            else:
-                                synsetSums[synset] += \
-                                    synsetSums[attr]
-                    for lemma in synset.lemmas():
-                        for antonym in lemma.antonyms():
-                            if antonym.synset() in synsetCounts:
-                                synsetCounts[synset] += \
-                                    synsetCounts[antonym.synset()]
-                                synsetSums[synset] += \
-                                    synsetSums[antonym.synset()]
-                        for pertainym in lemma.pertainyms():
-                            if pertainym.synset() in synsetCounts:
-                                synsetCounts[synset] += \
-                                    synsetCounts[pertainym.synset()]*.8
-                                if len(pertainym.synset()) > 0:
-                                    synsetSums[synset] += \
-                                        synsetSums[pertainym.synset()]*.8
-                                else:
-                                    synsetSums[synset] += \
-                                        synsetSums[pertainym.synset()]
-                        for related in lemma.derivationally_related_forms():
-                            if related.synset() in synsetCounts:
-                                synsetCounts[synset] += \
-                                    synsetCounts[related.synset()]
-                                if len(related.synset().hypernyms()) > 0:
-                                    synsetSums[synset] += \
-                                        synsetSums[related.synset()]*.8
-                                else:
-                                    synsetSums[synset] += \
-                                        synsetSums[related.synset()]
-
-                for synset in synsets[0].attributes():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        if len(synset.hypernyms()) > 0:
-                            synsetSums[synset] = concreteness*.8
-                        else:
+                        synsetCounts[synsets[0]] += 1
+                        synsetSums[synsets[0]] += concreteness
+                    for synset in get_all_hypernyms(synsets[0]):
+                        if synset.name() == 'entity.n.1':
+                            continue
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
                             synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        if len(synset.hypernyms()) > 0:
-                            synsetSums[synset] += concreteness*.8
                         else:
+                            synsetCounts[synset] += 1
                             synsetSums[synset] += concreteness
-                for synset in synsets[0].verb_groups():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
-                for synset in synsets[0].entailments():
-                    if synset not in synsetCounts:
-                        synsetCounts[synset] = 1
-                        synsetSums[synset] = concreteness
-                    else:
-                        synsetCounts[synset] += 1
-                        synsetSums[synset] += concreteness
+                    for synset in synsets[0].part_meronyms():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
+                    for synset in synsets[0].substance_meronyms():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
+                    for synset in synsets[0].member_meronyms():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
+
+            # Then extend it using all other relations
+            print("Extend concreteness estimates for WordNet synsets " 
+                  + " using all other relations.")
+            for row in csv_reader:
+                word = row['Word']
+                concreteness = float(row['CNC_M'])
+                synsets = wordnet.synsets(word)
+                if len(synsets) > 0 and synsets[0] not in synsetCounts:
+                    for lemma in synsets[0].lemmas():
+                        for antonym in lemma.antonyms():
+                            if antonym.synset() not in synsetCounts:
+                                synsetCounts[antonym.synset()] = 1
+                                synsetSums[antonym.synset()] = \
+                                    concreteness
+                            else:
+                                synsetCounts[antonym.synset()] += 1
+                                synsetSums[antonym.synset()] += \
+                                    concreteness
+                        for pertainym in lemma.pertainyms():
+                            if pertainym.synset() not in synsetCounts:
+                                synsetCounts[pertainym.synset()] = 1
+                                if len(pertainym.synset().hypernyms()) > 0:
+                                    synsetSums[pertainym.synset()] = \
+                                        concreteness * .8
+                                else:
+                                    synsetSums[pertainym.synset()] = \
+                                        concreteness
+                            else:
+                                synsetCounts[pertainym.synset()] += 1
+                                if len(pertainym.synset().hypernyms()) > 0:
+                                    synsetSums[pertainym.synset()] += \
+                                        concreteness*.8
+                                else:
+                                    synsetSums[pertainym.synset()] += \
+                                        concreteness
+
+                        for related in lemma.derivationally_related_forms():
+                            if related.synset() not in synsetCounts:
+                                synsetCounts[related.synset()] = 1
+                                if len(related.synset().hypernyms()) > 0:
+                                    synsetSums[related.synset()] = \
+                                        concreteness * .8
+                                else:
+                                    synsetSums[related.synset()] = \
+                                        concreteness
+                            else:
+                                synsetCounts[related.synset()] += 1
+                                if len(related.synset().hypernyms()) > 0:
+                                    synsetSums[related.synset()] += \
+                                        concreteness*.8
+                                else:
+                                    synsetSums[related.synset()] += \
+                                        concreteness
+
+                    for synset in synsets[0].similar_tos():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
+                        for attr in synset.attributes():
+                            if attr in synsetCounts:
+                                synsetCounts[synset] += \
+                                    synsetCounts[attr]
+                                if len(synset.attributes().hypernyms()) > 0:
+                                    synsetSums[synset] += \
+                                        synsetSums[attr]*.8
+                                else:
+                                    synsetSums[synset] += \
+                                        synsetSums[attr]
+                        for lemma in synset.lemmas():
+                            for antonym in lemma.antonyms():
+                                if antonym.synset() in synsetCounts:
+                                    synsetCounts[synset] += \
+                                        synsetCounts[antonym.synset()]
+                                    synsetSums[synset] += \
+                                        synsetSums[antonym.synset()]
+                            for pertainym in lemma.pertainyms():
+                                 if pertainym.synset() in synsetCounts:
+                                    synsetCounts[synset] += \
+                                        synsetCounts[pertainym.synset()]*.8
+                                    if len(pertainym.synset()) > 0:
+                                        synsetSums[synset] += \
+                                            synsetSums[pertainym.synset()]*.8
+                                    else:
+                                        synsetSums[synset] += \
+                                            synsetSums[pertainym.synset()]
+                            for related in lemma.derivationally_related_forms():
+                                if related.synset() in synsetCounts:
+                                    synsetCounts[synset] += \
+                                        synsetCounts[related.synset()]
+                                    if len(related.synset().hypernyms()) > 0:
+                                        synsetSums[synset] += \
+                                            synsetSums[related.synset()]*.8
+                                    else:
+                                        synsetSums[synset] += \
+                                            synsetSums[related.synset()]
+
+                    for synset in synsets[0].attributes():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            if len(synset.hypernyms()) > 0:
+                                synsetSums[synset] = concreteness*.8
+                            else:
+                                synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            if len(synset.hypernyms()) > 0:
+                                synsetSums[synset] += concreteness*.8
+                            else:
+                                synsetSums[synset] += concreteness
+                    for synset in synsets[0].verb_groups():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
+                    for synset in synsets[0].entailments():
+                        if synset not in synsetCounts:
+                            synsetCounts[synset] = 1
+                            synsetSums[synset] = concreteness
+                        else:
+                            synsetCounts[synset] += 1
+                            synsetSums[synset] += concreteness
 
         print('Extend estimates further by traversing hypernym relations\
                for synsets not yet assigned a concreteness estimate')
@@ -1358,9 +1359,9 @@ def processConcretes():
         for lemma in extras:
             finalDict[lemma] = extras[lemma]
 
-        outputfile = resources.path('awe_lexica.json_data',
-                                    'concretes.json')
-        srsly.write_json(outputfile, finalDict)
+        with resources.path('awe_lexica.json_data',
+                            'concretes.json') as outputfile:
+            srsly.write_json(outputfile, finalDict)
 
 if __name__ == '__main__':
     nltk.download('wordnet')
