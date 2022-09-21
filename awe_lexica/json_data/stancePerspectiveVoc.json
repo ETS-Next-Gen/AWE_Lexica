@@ -140,18 +140,6 @@
       "certainty"
     ]
   },
-  "always":{
-    "ADV":[
-      "evaluation",
-      "certainty"
-    ]
-  },
-  "never":{
-    "ADV":[
-      "evaluation",
-      "certainty"
-    ]
-  },
   "actually":{
     "ADV":[
       "evaluation",
@@ -3257,7 +3245,9 @@
   "anticipation":{
     "NOUN":[
       "emotion",
-      "surprise"
+      "surprise",
+      "cognitive",
+      "interpret"
     ]
   },
   "aversion":{
@@ -3399,7 +3389,11 @@
       "emotion",
       "desire",
       "cognitive",
-      "plan"
+      "plan",
+      "evaluated_role",
+      "social",
+      "evaluation",
+      "possibility"
     ],
     "AUX":[
       "evaluation",
@@ -3532,7 +3526,8 @@
     ],
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "admiration":{
@@ -3943,7 +3938,8 @@
       "emotion",
       "happiness",
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "veneration":{
@@ -4032,10 +4028,6 @@
   },
   "consolation":{
     "NOUN":[
-      "emotion",
-      "sadness"
-    ],
-    "VERB":[
       "emotion",
       "sadness"
     ]
@@ -4981,7 +4973,9 @@
     "NOUN":[
       "emotion",
       "surprise",
-      "happiness"
+      "happiness",
+      "communication",
+      "say"
     ]
   },
   "amazement":{
@@ -5886,8 +5880,8 @@
   },
   "power":{
     "NOUN":[
-      "evaluation",
-      "persuasiveness"
+      "abstract",
+      "cause"
     ]
   },
   "practicality":{
@@ -6695,7 +6689,9 @@
   "consideration":{
     "NOUN":[
       "character",
-      "agreeableness"
+      "agreeableness",
+      "cognitive",
+      "perceive"
     ]
   },
   "considerateness":{
@@ -6945,7 +6941,9 @@
   "determination":{
     "NOUN":[
       "character",
-      "conscientiousness"
+      "conscientiousness",
+      "cognitive",
+      "interpret"
     ]
   },
   "deviousness":{
@@ -7345,13 +7343,16 @@
       "character",
       "unreflectiveness",
       "cognitive",
-      "think"
+      "think",
+      "interpret"
     ]
   },
   "imagination":{
     "NOUN":[
       "character",
-      "openness"
+      "openness",
+      "cognitive",
+      "perceive"
     ]
   },
   "imaginativeness":{
@@ -7909,7 +7910,8 @@
       "character",
       "openness",
       "cognitive",
-      "think"
+      "think",
+      "perceive"
     ]
   },
   "perceptivity":{
@@ -8077,7 +8079,9 @@
   "responsibility":{
     "NOUN":[
       "character",
-      "conscientiousness"
+      "conscientiousness",
+      "cognitive",
+      "plan"
     ]
   },
   "rigidity":{
@@ -9064,19 +9068,19 @@
   "course_of_action":{
     "NOUN":[
       "abstract",
-      "plan"
+      "cause"
     ]
   },
   "action":{
     "NOUN":[
       "abstract",
-      "plan"
+      "cause"
     ]
   },
   "policy":{
     "NOUN":[
       "abstract",
-      "plan"
+      "cause"
     ]
   },
   "possibility":{
@@ -9194,6 +9198,16 @@
     "NOUN":[
       "cognitive",
       "plan"
+    ],
+    "VERB":[
+      "cognitive",
+      "plan"
+    ]
+  },
+  "way":{
+    "NOUN":[
+      "abstract",
+      "plan"
     ]
   },
   "choose":{
@@ -9233,7 +9247,29 @@
     ],
     "ADJ":[
       "evaluation",
-      "correctness"
+      "correctness",
+      "raising",
+      "appropriacy"
+    ]
+  },
+  "freedom":{
+    "NOUN":[
+      "cognitive",
+      "plan",
+      "abstract",
+      "cause"
+    ]
+  },
+  "duty":{
+    "NOUN":[
+      "cognitive",
+      "plan"
+    ]
+  },
+  "obligation":{
+    "NOUN":[
+      "cognitive",
+      "plan"
     ]
   },
   "decision":{
@@ -9378,7 +9414,10 @@
   "reading":{
     "NOUN":[
       "communication",
-      "sourcetext"
+      "sourcetext",
+      "say",
+      "cognitive",
+      "interpret"
     ]
   },
   "lecture":{
@@ -9823,6 +9862,10 @@
     "NOUN":[
       "communication",
       "say"
+    ],
+    "VERB":[
+      "communication",
+      "say"
     ]
   },
   "proclamation":{
@@ -9905,19 +9948,24 @@
   "conclusion":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "communication",
+      "say",
+      "think"
     ]
   },
   "deduction":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "think"
     ]
   },
   "discovery":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "interpret"
     ]
   },
   "generalization":{
@@ -9938,7 +9986,8 @@
     "NOUN":[
       "cognitive",
       "argument",
-      "think"
+      "think",
+      "perceive"
     ]
   },
   "realization":{
@@ -10002,7 +10051,8 @@
   "assessment":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "interpret"
     ]
   },
   "case":{
@@ -10014,19 +10064,22 @@
   "evaluation":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "perceive"
     ]
   },
   "hypothesis":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "think"
     ]
   },
   "judgment":{
     "NOUN":[
       "cognitive",
-      "argument"
+      "argument",
+      "interpret"
     ]
   },
   "opinion":{
@@ -10090,6 +10143,12 @@
     ]
   },
   "model":{
+    "NOUN":[
+      "cognitive",
+      "argument"
+    ]
+  },
+  "outlook":{
     "NOUN":[
       "cognitive",
       "argument"
@@ -10329,7 +10388,9 @@
       "communication",
       "argument",
       "abstract",
-      "cause"
+      "cause",
+      "cognitive",
+      "think"
     ]
   },
   "reckoning":{
@@ -10376,6 +10437,27 @@
     "VERB":[
       "cognitive",
       "think"
+    ]
+  },
+  "why":{
+    "SCONJ":[
+      "communication",
+      "argument",
+      "abstract",
+      "cause",
+      "evaluation",
+      "reason"
+    ]
+  },
+  "whether":{
+    "SCONJ":[
+      "communication",
+      "argument",
+      "abstract",
+      "cause",
+      "evaluation",
+      "reason",
+      "conditional"
     ]
   },
   "justification":{
@@ -12622,6 +12704,28 @@
       "outcome"
     ]
   },
+  "junk":{
+    "NOUN":[
+      "evaluated_role",
+      "status"
+    ]
+  },
+  "trash":{
+    "NOUN":[
+      "evaluated_role",
+      "status"
+    ]
+  },
+  "treasure":{
+    "NOUN":[
+      "evaluated_role",
+      "status"
+    ],
+    "VERB":[
+      "emotion",
+      "happiness"
+    ]
+  },
   "whitewash":{
     "NOUN":[
       "evaluated_role",
@@ -12655,7 +12759,8 @@
     ],
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "farce":{
@@ -13365,7 +13470,8 @@
       "emotion",
       "anger",
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "chastised":{
@@ -13648,7 +13754,8 @@
       "emotion",
       "anger",
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "face":{
@@ -13694,7 +13801,8 @@
       "emotion",
       "anger",
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "forgiven":{
@@ -14121,12 +14229,6 @@
     "VERB":[
       "emotion",
       "neutral"
-    ]
-  },
-  "treasure":{
-    "VERB":[
-      "emotion",
-      "happiness"
     ]
   },
   "trusting":{
@@ -18704,6 +18806,12 @@
       "desire"
     ]
   },
+  "juicy":{
+    "ADJ":[
+      "emotional_impact",
+      "desire"
+    ]
+  },
   "tempting":{
     "ADJ":[
       "emotional_impact",
@@ -18812,7 +18920,13 @@
   "be":{
     "VERB":[
       "abstract",
-      "exist"
+      "exist",
+      "seem"
+    ],
+    "AUX":[
+      "abstract",
+      "exist",
+      "seem"
     ]
   },
   "exist":{
@@ -19679,6 +19793,18 @@
       "cause"
     ]
   },
+  "hinder":{
+    "VERB":[
+      "abstract",
+      "cause"
+    ]
+  },
+  "hindrance":{
+    "VERB":[
+      "abstract",
+      "cause"
+    ]
+  },
   "incapacitate":{
     "VERB":[
       "abstract",
@@ -19704,12 +19830,6 @@
     ],
     "ADJ":[
       "evaluation",
-      "cause"
-    ]
-  },
-  "freedom":{
-    "NOUN":[
-      "abstract",
       "cause"
     ]
   },
@@ -20244,10 +20364,20 @@
     "VERB":[
       "communication",
       "publish"
+    ],
+    "NOUN":[
+      "communication",
+      "publish"
     ]
   },
   "say":{
     "VERB":[
+      "communication",
+      "say"
+    ]
+  },
+  "saying":{
+    "NOUN":[
       "communication",
       "say"
     ]
@@ -20337,6 +20467,12 @@
       "say"
     ]
   },
+  "emphasis":{
+    "NOUN":[
+      "communication",
+      "say"
+    ]
+  },
   "specify":{
     "VERB":[
       "communication",
@@ -20385,9 +20521,11 @@
   "use":{
     "VERB":[
       "abstract",
-      "plan",
-      "evaluated_role",
-      "conflict"
+      "relation"
+    ],
+    "NOUN":[
+      "abstract",
+      "relation"
     ]
   },
   "summarize":{
@@ -20434,6 +20572,12 @@
       "say"
     ]
   },
+  "expression":{
+    "NOUN":[
+      "communication",
+      "say"
+    ]
+  },
   "think":{
     "VERB":[
       "cognitive",
@@ -20441,6 +20585,12 @@
     ]
   },
   "thinking":{
+    "NOUN":[
+      "cognitive",
+      "think"
+    ]
+  },
+  "thought":{
     "NOUN":[
       "cognitive",
       "think"
@@ -20502,6 +20652,10 @@
     "VERB":[
       "cognitive",
       "think"
+    ],
+    "NOUN":[
+      "cognitive",
+      "think"
     ]
   },
   "posit":{
@@ -20522,8 +20676,18 @@
       "think"
     ]
   },
+  "philosophy":{
+    "NOUN":[
+      "cognitive",
+      "think"
+    ]
+  },
   "fancy":{
     "VERB":[
+      "cognitive",
+      "think"
+    ],
+    "NOUN":[
       "cognitive",
       "think"
     ]
@@ -20534,10 +20698,20 @@
       "think",
       "communication",
       "ditransitive"
+    ],
+    "NOUN":[
+      "cognitive",
+      "think"
     ]
   },
   "infer":{
     "VERB":[
+      "cognitive",
+      "think"
+    ]
+  },
+  "inference":{
+    "NOUN":[
       "cognitive",
       "think"
     ]
@@ -20548,8 +20722,18 @@
       "interpret"
     ]
   },
+  "sight":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "watch":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ],
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20564,10 +20748,20 @@
     "VERB":[
       "cognitive",
       "interpret"
+    ],
+    "NOUN":[
+      "cognitive",
+      "interpret"
     ]
   },
   "compare":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "comparison":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20578,14 +20772,30 @@
       "interpret"
     ]
   },
+  "examination":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "estimate":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ],
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
   },
   "characterize":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "characterization":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20602,14 +20812,32 @@
       "interpret"
     ]
   },
+  "measuremeant":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "rate":{
     "VERB":[
       "cognitive",
       "interpret"
     ]
   },
+  "rating":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "identify":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "identification":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20648,14 +20876,32 @@
       "interpret"
     ]
   },
+  "designation":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "detect":{
     "VERB":[
       "cognitive",
       "interpret"
     ]
   },
+  "detection":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "predict":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "prediction":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20672,14 +20918,32 @@
       "interpret"
     ]
   },
+  "foresight":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "interpret":{
     "VERB":[
       "cognitive",
       "interpret"
     ]
   },
+  "interpretation":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "portray":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "portrayal":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20694,6 +20958,10 @@
     "VERB":[
       "cognitive",
       "interpret"
+    ],
+    "NOUN":[
+      "cognitive",
+      "interpret"
     ]
   },
   "judge":{
@@ -20702,8 +20970,26 @@
       "interpret"
     ]
   },
+  "judgement":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
   "misjudge":{
     "VERB":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "misjudgement":{
+    "NOUN":[
+      "cognitive",
+      "interpret"
+    ]
+  },
+  "misjudgment":{
+    "NOUN":[
       "cognitive",
       "interpret"
     ]
@@ -20726,8 +21012,18 @@
       "perceive"
     ]
   },
+  "concentration":{
+    "NOUN":[
+      "cognitive",
+      "perceive"
+    ]
+  },
   "focus":{
     "VERB":[
+      "cognitive",
+      "perceive"
+    ],
+    "NOUN":[
       "cognitive",
       "perceive"
     ]
@@ -20739,16 +21035,30 @@
       "raising",
       "seem",
       "evaluation"
+    ],
+    "NOUN":[
+      "cognitive",
+      "perceive"
     ]
   },
   "regard":{
     "VERB":[
       "cognitive",
       "perceive"
+    ],
+    "NOUN":[
+      "cognitive",
+      "perceive"
     ]
   },
   "scrutinize":{
     "VERB":[
+      "cognitive",
+      "perceive"
+    ]
+  },
+  "scrutiny":{
+    "NOUN":[
       "cognitive",
       "perceive"
     ]
@@ -20783,6 +21093,12 @@
       "perceive"
     ]
   },
+  "memory":{
+    "NOUN":[
+      "cognitive",
+      "perceive"
+    ]
+  },
   "forget":{
     "VERB":[
       "cognitive",
@@ -20799,6 +21115,10 @@
     "VERB":[
       "cognitive",
       "perceive"
+    ],
+    "NOUN":[
+      "cognitive",
+      "perceive"
     ]
   },
   "recollect":{
@@ -20807,8 +21127,20 @@
       "perceive"
     ]
   },
+  "recollection":{
+    "NOUN":[
+      "cognitive",
+      "perceive"
+    ]
+  },
   "recognize":{
     "VERB":[
+      "cognitive",
+      "perceive"
+    ]
+  },
+  "recognition":{
+    "NOUN":[
       "cognitive",
       "perceive"
     ]
@@ -21162,13 +21494,15 @@
   "accuse":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "acquit":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "apologize":{
@@ -21180,7 +21514,8 @@
   "belittle":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "boast":{
@@ -21192,43 +21527,57 @@
   "complain":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "commend":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "condemn":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "compliment":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "congratulate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "praise":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "deserve":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluated_role",
+      "social"
+    ]
+  },
+  "merit":{
+    "VERB":[
+      "evaluated_role",
+      "social"
     ]
   },
   "mistreat":{
@@ -21240,61 +21589,71 @@
   "defame":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "denounce":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "impeach":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "lambaste":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "deride":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "rebuke":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "ridicule":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "stigmatize":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "laud":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "chide":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "admonish":{
@@ -21306,49 +21665,57 @@
   "calumniate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "castigate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "decry":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "denigrate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "deprecate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "disparage":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "execrate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "extol":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "felicitate":{
@@ -21366,37 +21733,43 @@
   "malign":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "reprimand":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "reproach":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "reprove":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "repudiate":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "upbraid":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "condescend":{
@@ -21420,25 +21793,29 @@
   "bless":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "applaud":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "deplore":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "glorify":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "pardon":{
@@ -21450,13 +21827,15 @@
   "revile":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "vilify":{
     "VERB":[
       "communication",
-      "conflict"
+      "conflict",
+      "evaluation"
     ]
   },
   "abandon":{
@@ -29996,7 +30375,19 @@
       "have"
     ]
   },
+  "wo":{
+    "AUX":[
+      "abstract",
+      "future"
+    ]
+  },
   "shall":{
+    "AUX":[
+      "abstract",
+      "future"
+    ]
+  },
+  "sha":{
     "AUX":[
       "abstract",
       "future"
@@ -30433,31 +30824,31 @@
   },
   "most":{
     "ADJ":[
-      "evaluation",
+      "abstract",
       "quantifier"
     ]
   },
   "many":{
     "ADJ":[
-      "evaluation",
+      "abstract",
       "quantifier"
     ]
   },
   "few":{
     "ADJ":[
-      "evaluation",
+      "abstract",
       "quantifier"
     ]
   },
   "no":{
     "ADJ":[
-      "evaluation",
+      "abstract",
       "quantifier"
     ]
   },
   "all":{
     "ADJ":[
-      "evaluation",
+      "abstract",
       "quantifier"
     ]
   },
@@ -30486,12 +30877,6 @@
     ]
   },
   "until":{
-    "SCONJ":[
-      "evaluation",
-      "conditional"
-    ]
-  },
-  "whether":{
     "SCONJ":[
       "evaluation",
       "conditional"
