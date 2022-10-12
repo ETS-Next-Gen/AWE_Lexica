@@ -88,6 +88,8 @@ definition
 degree
 description
 destruction
+deteriorate
+deterioration
 determination
 development
 difference
