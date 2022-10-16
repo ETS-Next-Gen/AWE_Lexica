@@ -296,7 +296,7 @@ possessively,ADV,character,disagreeableness
 pretentiously,ADV,character,disagreeableness
 profanely,ADV,character,disagreeableness
 proudly,ADV,character,extroversion
-prudishly,ADV,character,disagreeable
+prudishly,ADV,character,disagreeableness
 purposefully,ADV,character,conscientiousness
 rashly,ADV,character,impulsiveness
 reasonably,ADV,character,conscientiousness
@@ -343,7 +343,7 @@ submissively,ADV,character,introversion
 superstitiously,ADV,character,unreflectiveness
 suspiciously,ADV,character,disagreeableness
 sympathetically,ADV,character,agreeableness
-tactfully,ADV,character,agreeableness
+tactfully,ADV,character,agreeablenessness
 tactlessly,ADV,character,disagreeable
 talkatively,ADV,character,extroversion
 temperamentally,ADV,character,neuroticism
@@ -355,7 +355,7 @@ timidly,ADV,emotion,fear
 timidly,ADV,character,introversion
 tolerantly,ADV,character,openness
 touchily,ADV,character,neuroticism
-toughly,ADV,character,disagreeable
+toughly,ADV,character,disagreeableness
 unadventurously,ADV,character,introversion
 uncharitably,ADV,character,disagreeableness
 undemandingly,ADV,character,agreeableness
@@ -373,7 +373,7 @@ vainly,ADV,character,disagreeableness
 vengefully,ADV,character,disagreeableness
 vindictively,ADV,character,disagreeableness
 wary,ADJ,emotion,fear
-wary,ADJ,character,conscientious
+wary,ADJ,character,conscientiousness
 warily,ADV,emotion,fear
 warily,ADV,character,conscientiousness
 warmly,ADV,character,agreeableness
@@ -987,7 +987,7 @@ brutality,NOUN,character,disagreeableness
 buoyancy,NOUN,character,agreeableness
 bullheadedness,NOUN,character,disagreeableness
 callousness,NOUN,character,disagreeableness
-calm,NOUN,character,phegmaticism
+calm,NOUN,character,phlegmaticism
 calmness,NOUN,character,phlegmaticism
 care,NOUN,character,conscientiousness
 carefulness,NOUN,character,conscientiousness
@@ -1013,8 +1013,8 @@ combativeness,NOUN,character,disagreeableness
 communicativeness,NOUN,character,extroversion
 compassion,NOUN,character,agreeableness
 compassionateness,NOUN,character,agreeableness
-competitiveness,NOUN,character,extrorvesion
-complacency,NOUN,character,unreflective
+competitiveness,NOUN,character,extroversion
+complacency,NOUN,character,unreflectiveness
 compulsiveness,NOUN,character,conscientiousness
 obsessiveness,NOUN,character,neuroticism
 conceit,NOUN,character,disagreeableness
@@ -1032,7 +1032,7 @@ contemptuousness,NOUN,character,disagreeableness
 contrariness,NOUN,character,disagreeableness
 control,NOUN,character,conscientiousness
 coolness,NOUN,character,phlegmaticism
-complacency,NOUN,character,unreflective
+complacency,NOUN,character,unreflectiveness
 cordiality,NOUN,character,agreeableness
 courage,NOUN,character,extroversion
 courtesy,NOUN,character,agreeableness
@@ -1049,9 +1049,9 @@ crudeness,NOUN,character,disagreeableness
 cruelness,NOUN,character,disagreeableness
 cruelty,NOUN,character,disagreeableness
 curiosity,NOUN,character,openness
-curtness,NOUN,character,disagreeable
-cuteness,NOUN,character,agreeable
-cynicism,NOUN,character,disagreeable
+curtness,NOUN,character,disagreeableness
+cuteness,NOUN,character,agreeableness
+cynicism,NOUN,character,disagreeableness
 daring,NOUN,character,extroversion
 deceit,NOUN,character,disagreeableness
 deceitfulness,NOUN,character,disagreeableness
@@ -1072,16 +1072,16 @@ dignity,NOUN,character,conscientiousness
 diplomacy,NOUN,character,agreeableness
 directness,NOUN,character,extroversion
 disagreeableness,NOUN,character,disagreeableness
-discretion,NOUN,character,agreeable
-discreetness,NOUN,character,agreeable
+discretion,NOUN,character,agreeableness
+discreetness,NOUN,character,agreeableness
 dishonesty,NOUN,character,disagreeableness
 disinhibition,NOUN,character,impulsiveness
 disrespect,NOUN,character,disagreeableness
 distance,NOUN,character,introversion
-dogmatism,NOUN,character,unreflective
+dogmatism,NOUN,character,unreflectiveness
 dominance,NOUN,character,extroversion
 dreaminess,NOUN,character,openness
-earthiness,NOUN,character,agreeable
+earthiness,NOUN,character,agreeableness
 economy,NOUN,character,conscientiousness
 efficiency,NOUN,character,conscientiousness
 egocentrism,NOUN,character,disagreeableness
@@ -1151,7 +1151,7 @@ inconsistency,NOUN,character,impulsiveness
 indecisiveness,NOUN,character,impulsiveness
 independence,NOUN,character,phlegmaticism
 individualism,NOUN,character,phlegmaticism
-industriousness,NOUN,character,conscientous
+industriousness,NOUN,character,conscientiousness
 inefficiency,NOUN,character,impulsiveness
 inflexibility,NOUN,character,unreflectiveness
 informality,NOUN,character,agreeableness
@@ -1234,7 +1234,7 @@ passion,NOUN,character,impulsiveness
 passionlessness,NOUN,character,phlegmaticism
 peacefulness,NOUN,character,phlegmaticism
 pensiveness,NOUN,character,introversion
-peppiness,NOUN,character,extroverson
+peppiness,NOUN,character,extroversion
 perception,NOUN,character,openness
 perceptivity,NOUN,character,openness
 perfectionism,NOUN,character,conscientiousness
@@ -1312,7 +1312,7 @@ spite,NOUN,character,disagreeableness
 spitefulness,NOUN,character,disagreeableness
 steadiness,NOUN,character,conscientiousness
 sternness,NOUN,character,conscientiousness
-stinginess,NOUN,character,disagreeable
+stinginess,NOUN,character,disagreeableness
 strictness,NOUN,character,conscientiousness
 stridency,NOUN,character,conscientiousness
 stubbornness,NOUN,character,conscientiousness
@@ -1328,9 +1328,9 @@ suspicion,NOUN,character,disagreeableness
 paranoia,NOUN,character,disagreeableness
 suspiciousness,NOUN,character,disagreeableness
 systematicity,NOUN,character,conscientiousness
-tact,NOUN,character,agreeable
-tactfulness,NOUN,character,agreeable
-tactlessness,NOUN,character,disagreeable
+tact,NOUN,character,agreeableness
+tactfulness,NOUN,character,agreeableness
+tactlessness,NOUN,character,disagreeableness
 talkativeness,NOUN,character,extroversion
 temperament,NOUN,character,neutral
 tempestuousness,NOUN,character,disagreeableness
@@ -1344,7 +1344,7 @@ timidity,NOUN,character,introversion
 tolerance,NOUN,character,agreeableness
 touchiness,NOUN,character,disagreeableness
 toughness,NOUN,character,disagreeableness
-traditionality,NOUN,character,conscientious
+traditionality,NOUN,character,conscientiousness
 trustworthiness,NOUN,character,agreeableness
 truthfulness,NOUN,character,agreeableness
 uncouthness,NOUN,character,disagreeableness
@@ -1843,7 +1843,7 @@ cynical,ADJ,evaluation,social
 daredevil,NOUN,evaluated_role,social
 daredevil,ADJ,evaluation,social
 darling,NOUN,emotion,happiness
-darling,ADJ, evaluation,social
+darling,ADJ,evaluation,social
 deceiver,NOUN,evaluated_role,social
 devil,NOUN,evaluated_role,social
 devilish,ADJ,evaluation,social
@@ -2509,7 +2509,7 @@ experience,NOUN,emotion,neutral
 feel,VERB,cognitive,think
 feel,VERB,emotion,neutral
 amuse,VERB,emotional_impact,happiness
-amusement,NOUN,emotional,happiness
+amusement,NOUN,emotion,happiness
 amused,ADJ,emotion,happiness
 amusedly,ADV,emotion,happiness
 amusing,ADJ,emotional_impact,happiness
@@ -6283,11 +6283,11 @@ uninteresting,ADJ,evaluation,interest
 ordinary,ADJ,evaluation,interest
 insignificant,ADJ,evaluation,interest
 significant,ADJ,evaluation,interest
-give,VERB,possession, give
-provide,VERB,possession, give
-supply,VERB,possession, give
-yield,VERB,possession, give
-submit,VERB,possession, give
+give,VERB,possession,give
+provide,VERB,possession,give
+supply,VERB,possession,give
+yield,VERB,possession,give
+submit,VERB,possession,give
 gain,VERB,possession,gain
 win,VERB,possession,gain
 accomplish,VERB,possession,gain
