@@ -20,6 +20,7 @@ from nltk.corpus import stopwords
 
 import site
 
+from contextlib import redirect_stdout
 import nltk
 import os
 import sys

@@ -16,7 +16,7 @@ conda activate test_install
 Then from the AWE Workbench Components directory:
 
   pip install . ('pip install -e .' if installing in development mode)
-  python -m awe_workbench_components.setup.data --install (--develop if installing in development mode)
+  python -m awe_lexica.setup.data --install (--develop if installing in development mode)
 
 You MUST run the setup.data script before running the program.
 Incidentally, we don't yet have the package registered with pip, so you can't simply pip install awe_workbench yet.
