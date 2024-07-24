@@ -753,8 +753,13 @@ def loadViewpointLexicon(viewpointLex='argVoc.csv'):
     """
     stancePerspectiveVoc = {}
 
-    with resources.path('awe_lexica.data',
-                         viewpointLex) as filepath:
+    # This method for resources is deprecated; switching to recommended calls
+    # with resources.path('awe_lexica.data',
+    #                      viewpointLex) as filepath:
+        
+    with resources.as_file(
+            resources.files('awe_lexica').joinpath('data').joinpath(viewpointLex)
+        ) as filepath:
 
         with open(filepath, mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
@@ -826,8 +831,11 @@ def to_disk():
         filename = "{variable_name}.json".format(
             variable_name=export
         )
-        with resources.path('awe_lexica.json_data',
-                            filename) as outputfile:
+        # with resources.path('awe_lexica.json_data',
+        #                     filename) as outputfile:
+        with resources.as_file(
+            resources.files('awe_lexica').joinpath('json_data').joinpath(filename)
+        ) as outputfile:
             print('writing output file to', outputfile)
             srsly.write_json(outputfile, eval(export))
 
@@ -903,8 +911,11 @@ def levenshtein_ratio_and_distance(s, t, ratio_calc=False):
 
 def processConcretes():
     rawconcretes = {}
-    with resources.path('awe_lexica.data',
-                        'Concr_Base.csv') as filepath:
+    # with resources.path('awe_lexica.data',
+    #                     'Concr_Base.csv') as filepath:
+    with resources.as_file(
+            resources.files('awe_lexica').joinpath('data').joinpath('Concr_Base.csv')
+        ) as filepath:
         with open(filepath, mode='r', encoding='ISO-8859-1') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             line_count = 0
@@ -1360,8 +1371,11 @@ def processConcretes():
         for lemma in extras:
             finalDict[lemma] = extras[lemma]
 
-        with resources.path('awe_lexica.json_data',
-                            'concretes.json') as outputfile:
+        # with resources.path('awe_lexica.json_data',
+        #                     'concretes.json') as outputfile:
+        with resources.as_file(
+            resources.files('awe_lexica').joinpath('json_data').joinpath('concretes.json')
+        ) as outputfile:
             srsly.write_json(outputfile, finalDict)
 
 if __name__ == '__main__':
