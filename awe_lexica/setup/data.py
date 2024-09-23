@@ -752,11 +752,7 @@ def loadViewpointLexicon(viewpointLex='argVoc.csv'):
     to the spacy Token object
     """
     stancePerspectiveVoc = {}
-
-    # This method for resources is deprecated; switching to recommended calls
-    # with resources.path('awe_lexica.data',
-    #                      viewpointLex) as filepath:
-        
+    
     with resources.as_file(
             resources.files('awe_lexica').joinpath('data').joinpath(viewpointLex)
         ) as filepath:
@@ -831,8 +827,7 @@ def to_disk():
         filename = "{variable_name}.json".format(
             variable_name=export
         )
-        # with resources.path('awe_lexica.json_data',
-        #                     filename) as outputfile:
+
         with resources.as_file(
             resources.files('awe_lexica').joinpath('json_data').joinpath(filename)
         ) as outputfile:
